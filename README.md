@@ -25,20 +25,19 @@ It retrieves results in an ArrayList of ExtendedNode objects. Further additions 
 Try TestXmlWalk to get an idea:
 Input:
 
-<html>
-  <head>
-		<title>
-		bux
-		</title>
-	</head>
-	<body>
-		<div>
-			<div>1.1</div>
-			<div>1.2></div>
-		</div>
-		<div>2</div>
-	</body>
-</html>
+
+    <html>
+    	<head>
+       		<title>bux</title>
+    	</head>
+    	<body>
+    		<div>
+    			<div>1.1</div>
+    			<div>1.2></div>
+    		</div>
+    		<div>2</div>
+    	</body>
+    </html>
 
 Output (no exlusion, pre-order):
 Node-name  Left   Right
@@ -50,6 +49,7 @@ div         7     12
 div         8     9
 div         10    11
 div         13    14
+
                                        html (1,16)
                                         |
                                         |
