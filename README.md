@@ -11,7 +11,7 @@ Details are over at http://en.wikipedia.org/wiki/Nested_set_model
 Sample usage of this class:
 
     File xmlFile = new File("src/sampleHtml.xml"); //xml file
-    XmlWalk xmw = new XmlWalk(xmlFile, new String[]{}); //pass empty string, for no exclusions
+    XmlWalk xmw = new XmlWalk(xmlFile, new String[]{}); //pass empty string, for no exclusions (or null)
     result = xmw.getResult(); //fetch results
     for(ExtendedNode en : result){ //iterate through results
     	System.out.println(en.getNode().getNodeName() + " --> " + en.getLeft() + " : " + en.getRight());
