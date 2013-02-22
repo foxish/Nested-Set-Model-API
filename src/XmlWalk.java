@@ -117,7 +117,13 @@ public class XmlWalk {
 	 */
     private int getChildren(NodeList nl, int count){
     	for(int x = 0; x < nl.getLength(); x++){
-        	if(nl.item(x).getNodeType() == Node.ELEMENT_NODE && !nl.item(x).getNodeName().equalsIgnoreCase("property")){
+        	if(nl.item(x).getNodeType() == Node.ELEMENT_NODE){
+        		for(String str : this.ignoredTags){
+        			if(nl.item(x).getNodeName().equals(str)){
+        				count--;
+        				break;
+        			}
+        		}
     			count++;
         		if(nl.item(x).hasChildNodes())
         			count = getChildren(nl.item(x).getChildNodes(), count);
@@ -148,14 +154,17 @@ public class XmlWalk {
      */
 	private String buildQuery(){
 		String selector = "//*";
+		ArrayList<String> temp = new ArrayList<String>();
+
 		if(this.ignoredTags == null || this.ignoredTags.length == 0){
 			return selector;
 		}
 		
 		for (int i = 0; i < this.ignoredTags.length; i++)
-			this.ignoredTags[i] = "self::" + this.ignoredTags[i];
+			temp.add("self::" + this.ignoredTags[i]);
 		
-		return selector + "[not(" + join(ignoredTags, " or ") +")]";
+		String[] xpathExclude = new String[ temp.size() ];
+		return selector + "[not(" + join(temp.toArray(xpathExclude), " or ") +")]";
 	}
 	
 	/**

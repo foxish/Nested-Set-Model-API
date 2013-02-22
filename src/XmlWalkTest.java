@@ -41,7 +41,7 @@ public class XmlWalkTest {
         .append("</body></html>")
         .toString();
 		
-		xmw = new XmlWalk(xmlString, new String[]{"html", "head"}); //traversal will skip "html" and "head"
+		xmw = new XmlWalk(xmlString, new String[]{"html", "title"}); //traversal will skip "html" and "head"
 		result = xmw.getResult(); //fetch results
 		for(ExtendedNode en : result){
 			System.out.println(en.getNode().getNodeName() + " --> " + en.getLeft() + " : " + en.getRight());
