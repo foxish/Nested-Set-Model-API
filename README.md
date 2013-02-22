@@ -23,7 +23,7 @@ They can be passed as a string array, in the constructor itself.
 It retrieves results in an ArrayList of ExtendedNode objects. Further additions can be made to ExtendedNode, if necessary.
 
 Try TestXmlWalk to get an idea:
-Input:
+##Input:
 
 
     <html>
@@ -39,7 +39,9 @@ Input:
     	</body>
     </html>
 
-Output (no exlusion, pre-order):
+##Output (no exlusion, pre-order):
+
+<pre>
 Node-name  Left   Right
 html        1     16
 head        2     5
@@ -49,6 +51,10 @@ div         7     12
 div         8     9
 div         10    11
 div         13    14
+</pre>
+
+
+##Why this output:
 
                                        html (1,16)
                                         |
